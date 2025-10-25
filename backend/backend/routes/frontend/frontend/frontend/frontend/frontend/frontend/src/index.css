@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #ffeef8 0%, #ffe5f5 50%, #f3e5f9 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '💖 🌸 💕 🌺 💐 🌷 💗 🌹';
+  position: fixed;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  font-size: 30px;
+  opacity: 0.15;
+  animation: float 30s linear infinite;
+  letter-spacing: 100px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(-50px); }
+  100% { transform: translateY(100vh); }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-full 
+           hover:from-pink-600 hover:to-purple-600 transition-all duration-300 
+           shadow-lg hover:shadow-xl transform hover:scale-105 font-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-purple-400 to-pink-400 text-white px-6 py-3 rounded-full 
+           hover:from-purple-500 hover:to-pink-500 transition-all duration-300 
+           shadow-lg hover:shadow-xl transform hover:scale-105 font-medium;
+  }
+  
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-400 to-pink-500 text-white px-6 py-3 rounded-full 
+           hover:from-red-500 hover:to-pink-600 transition-all duration-300 
+           shadow-lg hover:shadow-xl transform hover:scale-105 font-medium;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-pink-200 rounded-2xl 
+           focus:outline-none focus:ring-4 focus:ring-pink-300 focus:border-pink-400
+           bg-white/80 backdrop-blur-sm transition-all duration-300
+           placeholder:text-pink-300;
+  }
+  
+  .card {
+    @apply bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl p-6 
+           border-2 border-pink-100 hover:shadow-2xl 
+           transition-all duration-300 transform hover:scale-105
+           relative overflow-hidden;
+  }
+
+  .card::before {
+    content: '🌸';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 80px;
+    opacity: 0.1;
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes spin-hearts {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  animation: spin-hearts 1s linear infinite;
+}
+
+table {
+  @apply w-full;
+}
+
+thead {
+  @apply bg-gradient-to-r from-pink-100 to-purple-100;
+}
+
+tbody tr:hover {
+  @apply bg-pink-50 transition-colors duration-200;
+}
+
+.status-active {
+  @apply bg-gradient-to-r from-green-400 to-emerald-400 text-white px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-inactive {
+  @apply bg-gradient-to-r from-gray-400 to-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-pending {
+  @apply bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.flower-decoration {
+  position: fixed;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+  font-size: 60px;
+  animation: float-gentle 8s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
